@@ -1,0 +1,13 @@
+fullnameOverride: prowlarr
+image:
+  repository: lscr.io/linuxserver/prowlarr
+  tag: develop
+port: 9696
+
+volumes:
+  - name: media
+    claimName: media
+volumeMounts:
+  - name: media
+    mountPath: /config
+    subPath: configs/prowlarr

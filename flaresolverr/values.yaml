@@ -1,0 +1,4 @@
+fullnameOverride: flaresolverr
+image:
+  repository: ghcr.io/flaresolverr/flaresolverr
+port: 8191

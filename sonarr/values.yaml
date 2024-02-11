@@ -1,0 +1,18 @@
+fullnameOverride: sonarr
+image:
+  repository: linuxserver/sonarr
+port: 8989
+
+volumes:
+  - name: media
+    claimName: media
+volumeMounts:
+  - name: media
+    mountPath: /config
+    subPath: configs/sonarr
+  - name: media
+    mountPath: /downloads/sonarr
+    subPath: downloads/sonarr
+  - name: media
+    mountPath: /tv
+    subPath: library/tv

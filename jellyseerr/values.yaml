@@ -1,0 +1,19 @@
+fullnameOverride: jellyseerr
+image:
+  repository: fallenbagel/jellyseerr
+port: 5055
+
+volumes:
+  - name: data
+    claimName: media
+volumeMounts:
+  - name: data
+    mountPath: /app/config
+    subPath: jellyseerr/config
+
+customEnv: true
+env:
+  - name: TZ
+    value: Europe/Zurich
+  - name: LOG_LEVEL
+    value: debug

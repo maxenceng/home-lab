@@ -1,0 +1,27 @@
+fullnameOverride: transmission
+image:
+  repository: lscr.io/linuxserver/transmission
+port: 9091
+
+additionalPorts:
+  - enabled: true
+    name: peer-tcp
+    protocol: TCP
+    type: ClusterIP
+    port: 51413
+  - enabled: true
+    name: peer-udp
+    protocol: UDP
+    type: ClusterIP
+    port: 51413
+
+volumes:
+  - name: media
+    claimName: media
+volumeMounts:
+  - name: media
+    mountPath: /downloads
+    subPath: downloads
+  - name: media
+    mountPath: /config
+    subPath: transmission/config

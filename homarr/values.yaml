@@ -1,0 +1,18 @@
+fullnameOverride: homarr
+image:
+  repository: ghcr.io/ajnart/homarr
+port: 7575
+
+volumes:
+  - name: media
+    claimName: media
+volumeMounts:
+  - name: media
+    mountPath: /app/data/configs
+    subPath: homarr/config
+  - name: media
+    mountPath: /app/public/icons
+    subPath: homarr/icons
+  - name: media
+    mountPath: /data
+    subPath: homarr/data

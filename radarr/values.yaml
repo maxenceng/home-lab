@@ -1,0 +1,18 @@
+fullnameOverride: radarr
+image:
+  repository: linuxserver/radarr
+port: 7878
+
+volumes:
+  - name: media
+    claimName: media
+volumeMounts:
+  - name: media
+    mountPath: /config
+    subPath: configs/radarr
+  - name: media
+    mountPath: /downloads/radarr
+    subPath: downloads/radarr
+  - name: media
+    mountPath: /movies
+    subPath: library/movies
