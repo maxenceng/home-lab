@@ -2,9 +2,9 @@
 
 dir=/media
 
-sudo mkdir $dir
-sudo chown -R 1000:1000 $dir
-sudo chmod -R 777 $dir
+mkdir $dir
+chown -R 1000:1000 $dir
+chmod -R 777 $dir
 
 ## RESTART REGISTRY WITH CUSTOM CONFIG
 k3d registry create registry.localhost --port 12345

@@ -9,7 +9,7 @@ volumes:
 volumeMounts:
   - name: data
     mountPath: /app/config
-    subPath: jellyseerr/config
+    subPath: configs/jellyseerr
 
 customEnv: true
 env:

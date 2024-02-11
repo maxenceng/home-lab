@@ -24,4 +24,4 @@ volumeMounts:
     subPath: downloads
   - name: media
     mountPath: /config
-    subPath: transmission/config
+    subPath: configs/transmission

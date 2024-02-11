@@ -11,8 +11,8 @@ volumeMounts:
     mountPath: /config
     subPath: configs/sonarr
   - name: media
-    mountPath: /downloads/sonarr
-    subPath: downloads/sonarr
+    mountPath: /downloads
+    subPath: downloads
   - name: media
     mountPath: /tv
     subPath: library/tv

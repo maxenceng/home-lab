@@ -9,7 +9,7 @@ volumes:
 volumeMounts:
   - name: media
     mountPath: /config
-    subPath: jellyfin/config
+    subPath: configs/jellyfin
   - name: media
     mountPath: /tv
     subPath: library/tv
