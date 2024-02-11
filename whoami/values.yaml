@@ -1,6 +1,0 @@
-fullnameOverride: whoami
-image:
-  repository: docker.io/traefik/whoami
-  tag: v1.6.1
-replicaCount: 2
-port: 80

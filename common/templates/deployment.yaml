@@ -30,9 +30,6 @@ spec:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
         - name: {{ $fullName }}
-          securityContext:
-            runAsUser: {{ .Values.config.puid }}
-            runAsGroup: {{ .Values.config.pgid }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default "latest" }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:

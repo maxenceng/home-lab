@@ -1,6 +1,6 @@
 #! /bin/bash
 
-dir=/d/media
+dir=/media
 
 sudo mkdir $dir
 sudo chown -R 1000:1000 $dir
