@@ -30,6 +30,7 @@ This project contains [k3d](https://k3d.io/v5.6.0/) scripts to test this project
 - In order to use this project in its full intent, you need to have a domain name registered and a cloudflare account configured following the requirements for the [ingress-controller used.](https://github.com/STRRL/cloudflare-tunnel-ingress-controller/blob/master/README.md)
 - Use `mv .env.example .env` and replace the required variables.
 
+### Commands
 On your remote server, you have to use
 ```shell
 sudo ./k3s-server.sh
@@ -65,8 +66,13 @@ If you are using k3d, use these commands instead as you won't need Cloudflare :
 ./metallb/setup.sh
 ./start.sh
 ```
-
 After a few seconds, everything will be deployed and available !
+
+#### Stop & Teardown
+In order to stop the applications, you can either `helm uninstall [application]` to stop one or `./stop.sh` to stop everything.
+
+If you want to destroy everything, you have to use `k3s-teardown.sh` (or `k3d-teardown.sh` if you're on k3d)
+
 
 ## Resources
 
