@@ -1,8 +1,6 @@
 #! /bin/zsh
 
 kubectl apply -k config
-helm upgrade --install traefik traefik/traefik
-kubectl apply -k traefik
 kubectl config set-context --current --namespace=dev
 helm upgrade --install sonarr common -f sonarr/values.yaml
 helm upgrade --install radarr common -f radarr/values.yaml

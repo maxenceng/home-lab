@@ -2,6 +2,7 @@ fullnameOverride: radarr
 image:
   repository: linuxserver/radarr
 port: 7878
+nodePort: 30878
 
 volumes:
   - name: media

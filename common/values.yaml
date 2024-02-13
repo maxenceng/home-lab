@@ -40,14 +40,9 @@ securityContext: {}
   # runAsNonRoot: true
   # runAsUser: 1000
 
-service:
-  type: ClusterIP
-
 ingress:
   enabled: true
   className: ""
-  annotations:
-    traefik.ingress.kubernetes.io/router.entrypoints: web
 #     kubernetes.io/ingress.class: nginx
 #     cert-manager.io/cluster-issuer: "letsencrypt-staging"
     # kubernetes.io/tls-acme: "true"
@@ -81,9 +76,12 @@ affinity: {}
 
 probeEnabled: false
 port: 80
+nodePort: 30080
 
 volumes: []
 volumeMounts: []
 customEnv: false
 
 additionalPorts: []
+
+domain: DOMAIN

@@ -2,6 +2,7 @@ fullnameOverride: homarr
 image:
   repository: ghcr.io/ajnart/homarr
 port: 7575
+nodePort: 30575
 
 volumes:
   - name: media

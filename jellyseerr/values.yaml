@@ -2,6 +2,7 @@ fullnameOverride: jellyseerr
 image:
   repository: fallenbagel/jellyseerr
 port: 5055
+nodePort: 30055
 
 volumes:
   - name: data

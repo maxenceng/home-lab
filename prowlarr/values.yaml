@@ -3,6 +3,7 @@ image:
   repository: lscr.io/linuxserver/prowlarr
   tag: develop
 port: 9696
+nodePort: 30696
 
 volumes:
   - name: media

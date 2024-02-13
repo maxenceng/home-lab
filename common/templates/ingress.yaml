@@ -12,8 +12,9 @@ metadata:
     {{- toYaml . | nindent 4 }}
   {{- end }}
 spec:
+  ingressClassName: cloudflare-tunnel
   rules:
-    - host: {{ $fullName }}.localhost
+    - host: {{ $fullName }}.{{ .Values.domain }}
       http:
         paths:
           - path: /
