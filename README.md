@@ -86,6 +86,7 @@ If you want to destroy everything, you have to use `k3s-teardown.sh` (or `k3d-te
 
 ## Future improvements
 
+- Language pack
 - Add other cool selfhosted applications
 - Replace Homarr with [Dashy](https://dashy.to/)
 - Configure Transmission to use a VPN

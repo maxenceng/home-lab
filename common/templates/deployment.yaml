@@ -71,6 +71,55 @@ spec:
               mountPath: {{ .mountPath }}
               subPath: {{ .subPath }}
           {{- end }}
+        {{ if .Values.vpnEnabled }}
+        - name: gluetun
+          image: "{{ .Values.vpn.image.name }}:{{ .Values.vpn.image.tag | default "latest" }}"
+          livenessProbe:
+            exec:
+              command:
+                - /gluetun-entrypoint
+                - healthcheck
+            initialDelaySeconds: 15
+            periodSeconds: 15
+          securityContext:
+            privileged: true
+            capabilities:
+              add:
+                - NET_ADMIN
+          resources:
+            limits:
+              memory: 768Mi
+              cpu: "1"
+            requests:
+              memory: 512Mi
+              cpu: "0.5"
+          env:
+            - name: VPN_SERVICE_PROVIDER
+              valueFrom:
+                secretKeyRef:
+                  name: gluetun-secret
+                  key: provider
+            - name: VPN_TYPE
+              valueFrom:
+                secretKeyRef:
+                  name: gluetun-secret
+                  key: type
+            - name: SERVER_REGIONS
+              valueFrom:
+                secretKeyRef:
+                  name: gluetun-secret
+                  key: region
+            - name: OPENVPN_USER
+              valueFrom:
+                secretKeyRef:
+                  name: gluetun-secret
+                  key: user
+            - name: OPENVPN_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: gluetun-secret
+                  key: password
+        {{- end }}
       volumes:
         {{- range .Values.volumes }}
         - name: {{ .name }}

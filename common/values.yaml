@@ -85,3 +85,10 @@ customEnv: false
 additionalPorts: []
 
 domain: DOMAIN
+
+vpnEnabled: false
+vpn:
+  image:
+    name: qmcgaw/gluetun
+    tag: v3.35.0
+
