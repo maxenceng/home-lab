@@ -1,6 +1,6 @@
 # Home Lab
 
-Project based on [k3s](https://k3s.io/) to host selfhosted apps to manage tv shows and movies.
+Project based on [k3s](https://k3s.io/) to host various apps to manage tv shows and movies.
 
 ## Applications
 
@@ -33,7 +33,7 @@ This project contains [k3d](https://k3d.io/v5.6.0/) scripts to test this project
 ### Commands
 On your remote server, you have to use
 ```shell
-sudo ./k3s-server.sh
+sudo ./scripts/k3s-server.sh
 ```
 This will start the server and create a folder to contain our resources.
 You can export the configuration with this command :
@@ -49,29 +49,30 @@ You can follow the changes that will be made with one of these : [OpenLens](http
 
 You can now use the next shell script that will initiate everything for your cluster
 ```shell
-./all.sh
+./scripts/all.sh
 # scripts started
 # ./config/helm.sh # Configures helm repositories
-# ./sed.sh # Replaces your variables for cloudflare deployment
+# ./scripts/sed.sh # Replaces your variables for cloudflare deployment and VPN setup
 # ./metallb/setup.sh # Configures the k8s load balancer
 # ./cloudflare/setup.sh # Creates an ingress controller and deploys all our applications on a Cloudflare tunnel
-# ./start.sh # Deploys all the applications on the cluster thanks to Helm using the chart configured for everything in the common folder
+# ./scripts/start.sh # Deploys all the applications on the cluster thanks to Helm using the chart configured for everything in the common folder
 
 ```
 If you are using k3d, use these commands instead as you won't need Cloudflare :
 (You may need to disable ingress on everything)
 ```shell
 ./config/helm.sh
-./sed.sh
+./scripts/sed.sh
 ./metallb/setup.sh
-./start.sh
+./scripts/start.sh
 ```
 After a few seconds, everything will be deployed and available !
+To configure your application, you have to setup internal urls as `[application].dev.svc.cluster.local:[service-port]`
 
 #### Stop & Teardown
-In order to stop the applications, you can either `helm uninstall [application]` to stop one or `./stop.sh` to stop everything.
+In order to stop the applications, you can either `helm uninstall [application]` to stop one or `./scripts/stop.sh` to stop everything.
 
-If you want to destroy everything, you have to use `k3s-teardown.sh` (or `k3d-teardown.sh` if you're on k3d)
+If you want to destroy everything, you have to use `scripts/k3s-teardown.sh` (or `scripts/k3d-teardown.sh` if you're on k3d)
 
 
 ## Resources
@@ -84,9 +85,10 @@ If you want to destroy everything, you have to use `k3s-teardown.sh` (or `k3d-te
 
 [Cloudflare Tunnel](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/) Allows us to avoid headaches with networking when it comes to deploying a private server to the cloud
 
+[Gluetun](https://github.com/qdm12/gluetun): VPN container to use transmission over VPN
+
 ## Future improvements
 
 - Language pack
 - Add other cool selfhosted applications
-- Replace Homarr with [Dashy](https://dashy.to/)
-- Configure Transmission to use a VPN
+- Add Grafana & Loki

@@ -29,3 +29,5 @@ volumeMounts:
   - name: media
     mountPath: /config
     subPath: configs/transmission
+
+vpnEnabled: true

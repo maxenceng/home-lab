@@ -74,13 +74,6 @@ spec:
         {{ if .Values.vpnEnabled }}
         - name: gluetun
           image: "{{ .Values.vpn.image.name }}:{{ .Values.vpn.image.tag | default "latest" }}"
-          livenessProbe:
-            exec:
-              command:
-                - /gluetun-entrypoint
-                - healthcheck
-            initialDelaySeconds: 15
-            periodSeconds: 15
           securityContext:
             privileged: true
             capabilities:

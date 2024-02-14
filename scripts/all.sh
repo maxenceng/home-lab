@@ -1,6 +1,6 @@
 #!/bin/bash
 ./config/helm.sh
-./sed.sh
+./scripts/sed.sh
 ./metallb/setup.sh
 ./cloudflare/setup.sh
-./start.sh
+./scripts/start.sh
