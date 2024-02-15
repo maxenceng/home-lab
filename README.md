@@ -22,15 +22,15 @@ Project based on [k3s](https://k3s.io/) to host various apps to manage tv shows 
 
 [Rancher](https://github.com/rancher/dashboard): Rancher dashboard to visualize clusters
 
-This project contains [k3d](https://k3d.io/v5.6.0/) scripts to test this project and k3s to deploy it with cloudflare on a private server in your home.
+This project contains [k3d](https://k3d.io/v5.6.0/) scripts to test this project and k3s to deploy it with Tailscale on a private server in your home.
 
 ## How to use
 
 ### Prerequisites
 
 - If you want to use k3d and start it on your own computer, [install it beforehand](https://k3d.io/v5.6.0/#releases)
-- In order to use this project in its full intent, you need to have a domain name registered and a cloudflare account configured following the requirements for the [ingress-controller used.](https://github.com/STRRL/cloudflare-tunnel-ingress-controller/blob/master/README.md)
-- Use `mv .env.example .env` and replace the required variables.
+- Use `mv .env.example .env` and replace the required variables
+- Create a Tailscale account and follow [the instructions](https://tailscale.com/kb/1236/kubernetes-operator)
 
 ### Commands
 On your remote server, you have to use
