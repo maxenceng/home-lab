@@ -84,8 +84,6 @@ customEnv: false
 
 additionalPorts: []
 
-domain: DOMAIN
-
 vpnEnabled: false
 vpn:
   image:

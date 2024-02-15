@@ -1,0 +1,3 @@
+oauth:
+  clientId: TS_ID
+  clientSecret: TS_SECRET

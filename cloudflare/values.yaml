@@ -1,4 +1,0 @@
-cloudflare:
-  apiToken: CF_TOKEN
-  accountId: CF_ID
-  tunnelName: homelab

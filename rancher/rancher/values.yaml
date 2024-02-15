@@ -1,7 +1,7 @@
 # Additional Trusted CAs.
 # Enable this flag and add your CA certs as a secret named tls-ca-additional in the namespace.
 # See README.md for details.
-additionalTrustedCAs: false
+#additionalTrustedCAs: false
 
 antiAffinity: preferred
 topologyKey: kubernetes.io/hostname
@@ -42,9 +42,6 @@ restrictedAdmin: false
 # - name: CATTLE_TLS_MIN_VERSION
 #   value: "1.0"
 
-# Fully qualified name to reach your Rancher server
-domain: DOMAIN
-
 ## Optional array of imagePullSecrets containing private registry credentials
 ## Ref: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
 imagePullSecrets: []
@@ -65,30 +62,17 @@ ingress:
   # configurationSnippet - Add additional Nginx configuration. This example statically sets a header on the ingress.
   # configurationSnippet: |
   #   more_set_input_headers "X-Forwarded-Host: {{ .Values.hostname }}";
-
-  tls:
-    # options: rancher, letsEncrypt, secret
-    source: rancher
-    secretName: tls-rancher-ingress
+#
+#  tls:
+#    # options: rancher, letsEncrypt, secret
+#    source: rancher
+#    secretName: tls-rancher-ingress
 
 ### service ###
 # Override to use NodePort or LoadBalancer service type - default is ClusterIP
 service:
   type: ""
   annotations: {}
-
-### LetsEncrypt config ###
-# ProTip: The production environment only allows you to register a name 5 times a week.
-#         Use staging until you have your config right.
-letsEncrypt:
-  # email: none@example.com
-  environment: production
-  ingress:
-    # options: traefik, nginx
-    class: ""
-# If you are using certs signed by a private CA set to 'true' and set the 'tls-ca'
-# in the 'rancher-system' namespace. See the README.md for details
-privateCA: false
 
 # http[s] proxy server passed into rancher server.
 # proxy: http://<username>@<password>:<url>:<port>
@@ -109,7 +93,7 @@ rancherImage: rancher/rancher
 
 # Number of Rancher server replicas. Setting to negative number will dynamically between 0 and the abs(replicas) based on available nodes.
 # of available nodes in the cluster
-replicas: 3
+replicas: 1
 
 # Set priorityClassName to avoid eviction
 priorityClassName: rancher-critical

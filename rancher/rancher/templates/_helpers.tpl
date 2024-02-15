@@ -36,7 +36,7 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 Generate the labels.
 */}}
 {{- define "rancher.labels" -}}
-app: {{ template "rancher.fullname" . }}
+app: rancher
 chart: {{ template "rancher.chartname" . }}
 heritage: {{ .Release.Service }}
 release: {{ .Release.Name }}

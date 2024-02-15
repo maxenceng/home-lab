@@ -2,7 +2,7 @@
 kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: {{ template "rancher.fullname" . }}-post-delete
+  name: rancher-post-delete
   labels: {{ include "rancher.labels" . | nindent 4 }}
   annotations:
     "helm.sh/hook": post-delete
@@ -40,8 +40,5 @@ rules:
 {{- end }}
   - apiGroups: [ "networking.k8s.io" ]
     resources: [ "ingresses" ]
-    verbs: [ "delete" ]
-  - apiGroups: [ "cert-manager.io" ]
-    resources: [ "issuers" ]
     verbs: [ "delete" ]
 {{- end }}

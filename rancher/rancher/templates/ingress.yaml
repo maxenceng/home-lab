@@ -2,7 +2,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ template "rancher.fullname" . }}
+  name: rancher
   labels:
 {{ include "rancher.labels" . | indent 4 }}
   {{- with .Values.ingress.annotations }}
@@ -10,16 +10,18 @@ metadata:
     {{- toYaml . | nindent 4 }}
   {{- end }}
 spec:
-  ingressClassName: cloudflare-tunnel
+  ingressClassName: tailscale
+  tls:
+    - hosts:
+        - rancher
   rules:
-    - host: {{ template "rancher.fullname" . }}.{{ .Values.domain }}
-      http:
+    - http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: {{ template "rancher.fullname" . }}
+                name: rancher
                 port:
                   number: {{ .Values.ingress.servicePort }}
 {{- end }}

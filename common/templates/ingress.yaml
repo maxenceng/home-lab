@@ -12,10 +12,12 @@ metadata:
     {{- toYaml . | nindent 4 }}
   {{- end }}
 spec:
-  ingressClassName: cloudflare-tunnel
+  ingressClassName: tailscale
+  tls:
+    - hosts:
+        - {{ $fullName }}
   rules:
-    - host: {{ $fullName }}.{{ .Values.domain }}
-      http:
+    - http:
         paths:
           - path: /
             pathType: Prefix

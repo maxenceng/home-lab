@@ -5,7 +5,7 @@ metadata:
   annotations:
 {{ toYaml .Values.service.annotations | indent 4 }}
 {{- end }}
-  name: {{ template "rancher.fullname" . }}
+  name: rancher
   labels:
 {{ include "rancher.labels" . | indent 4 }}
 spec:
@@ -25,4 +25,4 @@ spec:
     protocol: TCP
     name: https-internal
   selector:
-    app: {{ template "rancher.fullname" . }}
+    app: rancher

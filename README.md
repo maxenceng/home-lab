@@ -20,6 +20,8 @@ Project based on [k3s](https://k3s.io/) to host various apps to manage tv shows 
 
 [Jellyseerr](https://github.com/Fallenbagel/jellyseerr): Displays popular movies and tv shows you can request
 
+[Rancher](https://github.com/rancher/dashboard): Rancher dashboard to visualize clusters
+
 This project contains [k3d](https://k3d.io/v5.6.0/) scripts to test this project and k3s to deploy it with cloudflare on a private server in your home.
 
 ## How to use
@@ -52,22 +54,16 @@ You can now use the next shell script that will initiate everything for your clu
 ./scripts/all.sh
 # scripts started
 # ./config/helm.sh # Configures helm repositories
-# ./scripts/sed.sh # Replaces your variables for cloudflare deployment and VPN setup
-# ./metallb/setup.sh # Configures the k8s load balancer
-# ./cloudflare/setup.sh # Creates an ingress controller and deploys all our applications on a Cloudflare tunnel
+# ./tailscale/setup.sh # Configures Tailscale operator
+# ./scripts/sed.sh # Replaces your variables for Tailscale proxy and VPN setup
+# ./rancher/setup.sh # Installs Rancher
 # ./scripts/start.sh # Deploys all the applications on the cluster thanks to Helm using the chart configured for everything in the common folder
 
 ```
-If you are using k3d, use these commands instead as you won't need Cloudflare :
-(You may need to disable ingress on everything)
-```shell
-./config/helm.sh
-./scripts/sed.sh
-./metallb/setup.sh
-./scripts/start.sh
-```
+
 After a few seconds, everything will be deployed and available !
-To configure your application, you have to setup internal urls as `[application].dev.svc.cluster.local:[service-port]`
+To configure your application, you have to set up internal urls as `[application].dev.svc.cluster.local:[service-port]`.
+You can acces your applications at `https://[application].[tailscale-dns]`
 
 #### Stop & Teardown
 In order to stop the applications, you can either `helm uninstall [application]` to stop one or `./scripts/stop.sh` to stop everything.
@@ -79,16 +75,15 @@ If you want to destroy everything, you have to use `scripts/k3s-teardown.sh` (or
 
 [Helm](https://helm.sh/) Simplifies common configurations
 
-[MetalLB](https://metallb.universe.tf/) Load balancer, very useful for homelabs
-
-[Clouflare Tunnel Ingress Controller](https://github.com/STRRL/cloudflare-tunnel-ingress-controller) Deploys everything on Cloudflare with barely any configuration
-
-[Cloudflare Tunnel](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/) Allows us to avoid headaches with networking when it comes to deploying a private server to the cloud
-
 [Gluetun](https://github.com/qdm12/gluetun): VPN container to use transmission over VPN
+
+[Tailscale](https://github.com/tailscale/tailscale): Private WireGuard with DNS resolution
 
 ## Future improvements
 
 - Language pack
 - Add other cool selfhosted applications
-- Add Grafana & Loki
+- Add Grafana & Prometheus with [Prometheus Operator](https://prometheus-operator.dev/)
+
+###
+:warning: Cloudflare Tunnel doesn't allow video streaming so I opted out of it in favor of Tailscale

@@ -2,7 +2,7 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: {{ template "rancher.fullname" . }}-post-delete
+  name: rancher-post-delete
   labels: {{ include "rancher.labels" . | nindent 4 }}
   annotations:
     "helm.sh/hook": post-delete
@@ -11,9 +11,9 @@ metadata:
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: {{ template "rancher.fullname" . }}-post-delete
+  name: rancher-post-delete
 subjects:
   - kind: ServiceAccount
-    name: {{ template "rancher.fullname" . }}-post-delete
+    name: rancher-post-delete
     namespace: {{ .Release.Namespace }}
 {{- end }}
