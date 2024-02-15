@@ -57,6 +57,7 @@ You can now use the next shell script that will initiate everything for your clu
 # ./tailscale/setup.sh # Configures Tailscale operator
 # ./scripts/sed.sh # Replaces your variables for Tailscale proxy and VPN setup
 # ./rancher/setup.sh # Installs Rancher
+# ./monitoring/setup.sh # Starts Prometheus & Grafana
 # ./scripts/start.sh # Deploys all the applications on the cluster thanks to Helm using the chart configured for everything in the common folder
 
 ```
@@ -83,7 +84,6 @@ If you want to destroy everything, you have to use `scripts/k3s-teardown.sh` (or
 
 - Language pack
 - Add other cool selfhosted applications
-- Add Grafana & Prometheus with [Prometheus Operator](https://prometheus-operator.dev/)
 
 ###
 :warning: Cloudflare Tunnel doesn't allow video streaming so I opted out of it in favor of Tailscale

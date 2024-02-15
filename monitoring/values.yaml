@@ -1,0 +1,30 @@
+prometheusOperator:
+  resources:
+    limits:
+      cpu: 200m
+      memory: 200Mi
+    requests:
+      cpu: 100m
+      memory: 100Mi
+  prometheusConfigReloader:
+    resources:
+      requests:
+        cpu: 200m
+        memory: 50Mi
+      limits:
+        cpu: 200m
+        memory: 50Mi
+
+prometheus:
+  prometheusSpec:
+    resources:
+     requests:
+       memory: 400Mi
+
+grafana:
+  service:
+    type: NodePort
+    nodePort: 30000
+
+alertManager:
+  enabled: false
