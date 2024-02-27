@@ -7,4 +7,6 @@ helm uninstall prowlarr
 helm uninstall jellyfin
 helm uninstall jellyseerr
 helm uninstall transmission
-helm uninstall homarr
+helm uninstall homepage
+helm uninstall cloudbeaver
+kubectl delete -k postgres

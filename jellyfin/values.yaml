@@ -5,15 +5,17 @@ port: 8096
 nodePort: 30096
 
 volumes:
-  - name: media
-    claimName: media
+  - name: db
+    claimName: db
+  - name: data
+    claimName: data
 volumeMounts:
-  - name: media
+  - name: db
     mountPath: /config
     subPath: configs/jellyfin
-  - name: media
+  - name: data
     mountPath: /tv
     subPath: library/tv
-  - name: media
+  - name: data
     mountPath: /movies
     subPath: library/movies

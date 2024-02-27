@@ -36,13 +36,11 @@ Common labels
 {{- define "common.labels" -}}
 helm.sh/chart: {{ include "common.chart" . }}
 meta.helm.sh/release-name: {{ .Release.Name }}
-app.kubernetes.io/instance: {{ .Release.Name }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{ include "common.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
-app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{- end }}
 
 {{/*

@@ -20,13 +20,15 @@ additionalPorts:
     port: 51413
 
 volumes:
-  - name: media
-    claimName: media
+  - name: db
+    claimName: db
+  - name: data
+    claimName: data
 volumeMounts:
-  - name: media
+  - name: data
     mountPath: /downloads
     subPath: downloads
-  - name: media
+  - name: db
     mountPath: /config
     subPath: configs/transmission
 

@@ -4,7 +4,7 @@ Project based on [k3s](https://k3s.io/) to host various apps to manage tv shows 
 
 ## Applications
 
-[Homarr](https://github.com/ajnart/homarr): Application dashboard
+[Homepage](https://github.com/gethomepage/homepage): Application dashboard
 
 [Prowlarr](https://github.com/Prowlarr/Prowlarr): Torrent indexer
 
@@ -22,20 +22,17 @@ Project based on [k3s](https://k3s.io/) to host various apps to manage tv shows 
 
 [Rancher](https://github.com/rancher/dashboard): Rancher dashboard to visualize clusters
 
-This project contains [k3d](https://k3d.io/v5.6.0/) scripts to test this project and k3s to deploy it with Tailscale on a private server in your home.
-
 ## How to use
 
 ### Prerequisites
 
-- If you want to use k3d and start it on your own computer, [install it beforehand](https://k3d.io/v5.6.0/#releases)
 - Use `mv .env.example .env` and replace the required variables
 - Create a Tailscale account and follow [the instructions](https://tailscale.com/kb/1236/kubernetes-operator)
 
 ### Commands
 On your remote server, you have to use
 ```shell
-sudo ./scripts/k3s-server.sh
+sudo ./scripts/server.sh
 ```
 This will start the server and create a folder to contain our resources.
 You can export the configuration with this command :
@@ -58,6 +55,9 @@ You can now use the next shell script that will initiate everything for your clu
 # ./scripts/sed.sh # Replaces your variables for Tailscale proxy and VPN setup
 # ./rancher/setup.sh # Installs Rancher
 # ./monitoring/setup.sh # Starts Prometheus & Grafana
+# kubectl apply -k config # Prepares the configuration for the cluster
+# kubectl config set-context --current --namespace=dev # Sets the default namespace to dev where our applications will be
+# kubectl apply -k postgres # Adds Postgres to the cluster
 # ./scripts/start.sh # Deploys all the applications on the cluster thanks to Helm using the chart configured for everything in the common folder
 
 ```
@@ -69,7 +69,7 @@ You can acces your applications at `https://[application].[tailscale-dns]`
 #### Stop & Teardown
 In order to stop the applications, you can either `helm uninstall [application]` to stop one or `./scripts/stop.sh` to stop everything.
 
-If you want to destroy everything, you have to use `scripts/k3s-teardown.sh` (or `scripts/k3d-teardown.sh` if you're on k3d)
+If you want to destroy everything, you have to use `scripts/teardown.sh`
 
 
 ## Resources
@@ -80,10 +80,8 @@ If you want to destroy everything, you have to use `scripts/k3s-teardown.sh` (or
 
 [Tailscale](https://github.com/tailscale/tailscale): Private WireGuard with DNS resolution
 
-## Future improvements
+[PostgreSQL](https://github.com/postgres/postgres): SQL Database
 
-- Language pack
-- Add other cool selfhosted applications
 
 ###
 :warning: Cloudflare Tunnel doesn't allow video streaming so I opted out of it in favor of Tailscale

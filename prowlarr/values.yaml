@@ -5,10 +5,13 @@ image:
 port: 9696
 nodePort: 30696
 
+ingress:
+  enabled: false
+
 volumes:
-  - name: media
-    claimName: media
+  - name: db
+    claimName: db
 volumeMounts:
-  - name: media
+  - name: db
     mountPath: /config
     subPath: configs/prowlarr

@@ -5,15 +5,17 @@ port: 8989
 nodePort: 30989
 
 volumes:
-  - name: media
-    claimName: media
+  - name: db
+    claimName: db
+  - name: data
+    claimName: data
 volumeMounts:
-  - name: media
+  - name: db
     mountPath: /config
     subPath: configs/sonarr
-  - name: media
+  - name: data
     mountPath: /downloads
     subPath: downloads
-  - name: media
+  - name: data
     mountPath: /tv
     subPath: library/tv

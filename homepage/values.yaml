@@ -1,0 +1,16 @@
+fullnameOverride: homepage
+image:
+  repository: ghcr.io/gethomepage/homepage
+port: 3000
+nodePort: 30030
+
+volumes:
+  - name: db
+    claimName: db
+volumeMounts:
+  - name: db
+    mountPath: /app/config
+    subPath: configs/homepage
+  - name: db
+    mountPath: /app/public/images
+    subPath: public/images

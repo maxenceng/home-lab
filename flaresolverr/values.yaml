@@ -2,3 +2,6 @@ fullnameOverride: flaresolverr
 image:
   repository: ghcr.io/flaresolverr/flaresolverr
 port: 8191
+
+ingress:
+  enabled: false

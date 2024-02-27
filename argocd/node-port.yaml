@@ -1,0 +1,6 @@
+spec:
+  type: NodePort
+  ports:
+    - port: 8080
+      nodePort: 30888
+      name: http

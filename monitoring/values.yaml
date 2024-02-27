@@ -26,5 +26,5 @@ grafana:
     type: NodePort
     nodePort: 30000
 
-alertManager:
+alertmanager:
   enabled: false

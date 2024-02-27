@@ -42,6 +42,7 @@ securityContext: {}
 
 ingress:
   enabled: true
+  expose: false
   className: ""
 #     kubernetes.io/ingress.class: nginx
 #     cert-manager.io/cluster-issuer: "letsencrypt-staging"

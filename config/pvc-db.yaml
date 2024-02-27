@@ -1,20 +1,20 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: data
+  name: db
 spec:
   storageClassName: manual
   capacity:
-    storage: 8000Gi
+    storage: 1000Gi
   accessModes:
     - ReadWriteMany
   hostPath:
-    path: /data
+    path: /db
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: data
+  name: db
   namespace: dev
 spec:
   storageClassName: manual
@@ -22,4 +22,4 @@ spec:
     - ReadWriteMany
   resources:
     requests:
-      storage: 8000Gi
+      storage: 1000Gi

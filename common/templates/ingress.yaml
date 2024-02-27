@@ -7,9 +7,9 @@ metadata:
   name: {{ $fullName }}
   labels:
     {{- include "common.labels" . | nindent 4 }}
-  {{- with .Values.ingress.annotations }}
+  {{- if .Values.ingress.expose }}
   annotations:
-    {{- toYaml . | nindent 4 }}
+    tailscale.com/funnel: "true"
   {{- end }}
 spec:
   ingressClassName: tailscale

@@ -5,10 +5,10 @@ port: 5055
 nodePort: 30055
 
 volumes:
-  - name: data
-    claimName: media
+  - name: db
+    claimName: db
 volumeMounts:
-  - name: data
+  - name: db
     mountPath: /app/config
     subPath: configs/jellyseerr
 

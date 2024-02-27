@@ -1,0 +1,16 @@
+fullnameOverride: cloudbeaver
+image:
+  repository: dbeaver/cloudbeaver
+port: 8978
+nodePort: 31978
+
+ingress:
+  enabled: false
+
+volumes:
+  - name: db
+    claimName: db
+volumeMounts:
+  - name: db
+    mountPath: /opt/cloudbeaver/workspace
+    subPath: configs/cloudbeaver

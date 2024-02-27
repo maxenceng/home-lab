@@ -1,4 +1,5 @@
 resources:
   - namespace.yaml
   - pvc.yaml
+  - pvc-db.yaml
   - gluetun-secret.yaml
