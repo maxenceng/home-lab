@@ -51,6 +51,14 @@ You can now use the next shell script that will initiate everything for your clu
 ```shell
 task setup
 ```
+You have to change the samples for the 2 secrets we need and use
+```shell
+task set-secrets
+```
+You can prepare the cluster for applications with
+```shell
+task prepare
+```
 
 After a few seconds, everything will be deployed and available !
 To configure your application, you have to set up internal urls as `[application]:[service-port]`.

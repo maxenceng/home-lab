@@ -13,8 +13,12 @@ spec:
     targetRevision: 56.14.0
     chart: kube-prometheus-stack
     path: lab/monitoring
-    helm: {{ .Values.spec.source.helm }}
+    helm:
+      valueFiles: {{ .Values.spec.source.helm.valueFiles }}
   destination:
     server: {{ .Values.spec.destination.server }}
     namespace: monitoring
-  syncPolicy: {{ .Values.spec.syncPolicy }}
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

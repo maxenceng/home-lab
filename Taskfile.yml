@@ -65,5 +65,21 @@ tasks:
       - task install-argocd
       - task argocd-password
       - task argocd-login
+
+  set-secrets:
+    cmds:
+      - kubeseal --controller-name=sealed-secrets --controller-namespace=kube-system -f sample/gluetun-secret.yaml -w config/gluetun-sealed.yaml
+      - kubeseal --controller-name=sealed-secrets --controller-namespace=kube-system -f sample/postgres-secret.yaml -w config/postgres-sealed.yaml
+
+  prepare:
+    cmds:
       - task install-sealed-secrets
       - task set-config
+      - kubectl config set-context --current --namespace=dev
+
+  create-apps:
+    cmd: argocd app create home-lab
+      --dest-namespace argocd
+      --dest-server https://kubernetes.default.svc
+      --repo https://github.com/maxenceng/home-lab.git
+      --path apps

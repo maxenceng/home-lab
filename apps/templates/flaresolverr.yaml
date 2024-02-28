@@ -13,8 +13,12 @@ spec:
     targetRevision: {{ .Values.spec.source.targetRevision }}
     chart: {{ .Values.spec.source.chart }}
     path: lab/flaresolverr
-    helm: {{ .Values.spec.source.helm }}
+    helm:
+      valueFiles: {{ .Values.spec.source.helm.valueFiles }}
   destination:
     server: {{ .Values.spec.destination.server }}
     namespace: {{ .Values.spec.destination.namespace }}
-  syncPolicy: {{ .Values.spec.syncPolicy }}
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
