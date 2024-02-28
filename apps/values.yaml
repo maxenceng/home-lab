@@ -5,12 +5,16 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/maxenceng/tailscale-chart
+    repoURL: https://maxenceng.github.io/tailscale-chart/
     targetRevision: 1.0.0
     chart: easy-tailscale
     helm:
       valueFiles:
         - values.yaml
+  values:
+    repoURL: https://github.com/maxenceng/home-lab
+    targetRevision: HEAD
+
   destination:
     server: https://kubernetes.default.svc
     namespace: dev

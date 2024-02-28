@@ -8,13 +8,16 @@ metadata:
     name: flaresolverr
 spec:
   project: {{ .Values.spec.project }}
-  source:
-    repoURL: {{ .Values.spec.source.repoURL }}
-    targetRevision: {{ .Values.spec.source.targetRevision }}
-    chart: {{ .Values.spec.source.chart }}
-    path: lab/flaresolverr
-    helm:
-      valueFiles: {{ .Values.spec.source.helm.valueFiles }}
+  sources:
+    - repoURL: {{ .Values.spec.source.repoURL }}
+      targetRevision: {{ .Values.spec.source.targetRevision }}
+      chart: {{ .Values.spec.source.chart }}
+      helm:
+        valueFiles:
+          - $values/lab/flaresolverr/values.yaml
+    - repoURL: {{ .Values.spec.values.repoURL }}
+      targetRevision: {{ .Values.spec.values.targetRevision }}
+      ref: values
   destination:
     server: {{ .Values.spec.destination.server }}
     namespace: {{ .Values.spec.destination.namespace }}

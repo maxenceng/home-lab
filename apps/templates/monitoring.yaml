@@ -8,13 +8,16 @@ metadata:
     name: monitoring
 spec:
   project: {{ .Values.spec.project }}
-  source:
-    repoURL: https://prometheus-community.github.io/helm-charts
-    targetRevision: 56.14.0
-    chart: kube-prometheus-stack
-    path: lab/monitoring
-    helm:
-      valueFiles: {{ .Values.spec.source.helm.valueFiles }}
+  sources:
+    - repoURL: https://prometheus-community.github.io/helm-charts
+      targetRevision: 56.14.0
+      chart: kube-prometheus-stack
+      helm:
+        valueFiles:
+          - $values/lab/monitoring/values.yaml
+    - repoURL: https://github.com/maxenceng/home-lab
+      targetRevision: HEAD
+      ref: values
   destination:
     server: {{ .Values.spec.destination.server }}
     namespace: monitoring
