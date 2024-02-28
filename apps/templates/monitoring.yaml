@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: monitoring
+  namespace: {{ .Values.metadata.namespace }}
+  finalizers: {{ .Values.metadata.finalizers }}
+  labels:
+    name: monitoring
+spec:
+  project: {{ .Values.spec.project }}
+  source:
+    repoURL: https://prometheus-community.github.io/helm-charts
+    targetRevision: 56.14.0
+    chart: kube-prometheus-stack
+    path: lab/monitoring
+    helm: {{ .Values.spec.source.helm }}
+  destination:
+    server: {{ .Values.spec.destination.server }}
+    namespace: monitoring
+  syncPolicy: {{ .Values.spec.syncPolicy }}

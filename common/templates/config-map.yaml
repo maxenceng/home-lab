@@ -1,8 +1,0 @@
-{{- $fullName := include "common.fullname" . -}}
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: {{ $fullName }}-config
-data:
-  PGID: "{{ .Values.config.pgid }}"
-  PUID: "{{ .Values.config.puid }}"

@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: flaresolverr
+  namespace: {{ .Values.metadata.namespace }}
+  finalizers: {{ .Values.metadata.finalizers }}
+  labels:
+    name: flaresolverr
+spec:
+  project: {{ .Values.spec.project }}
+  source:
+    repoURL: {{ .Values.spec.source.repoURL }}
+    targetRevision: {{ .Values.spec.source.targetRevision }}
+    chart: {{ .Values.spec.source.chart }}
+    path: lab/flaresolverr
+    helm: {{ .Values.spec.source.helm }}
+  destination:
+    server: {{ .Values.spec.destination.server }}
+    namespace: {{ .Values.spec.destination.namespace }}
+  syncPolicy: {{ .Values.spec.syncPolicy }}
