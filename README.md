@@ -20,7 +20,7 @@ Project based on [k3s](https://k3s.io/) to host various apps to manage tv shows 
 
 [Jellyseerr](https://github.com/Fallenbagel/jellyseerr): Displays popular movies and tv shows you can request
 
-[Rancher](https://github.com/rancher/dashboard): Rancher dashboard to visualize clusters
+[ArgoCD](https://github.com/argoproj/argo-cd): Deploys applications easily and with a GUI
 
 ## How to use
 
@@ -28,11 +28,12 @@ Project based on [k3s](https://k3s.io/) to host various apps to manage tv shows 
 
 - Use `mv .env.example .env` and replace the required variables
 - Create a Tailscale account and follow [the instructions](https://tailscale.com/kb/1236/kubernetes-operator)
+- Taskfile [installed](https://github.com/go-task/task)
 
 ### Commands
 On your remote server, you have to use
 ```shell
-sudo ./scripts/server.sh
+sudo ./setup/server.sh
 ```
 This will start the server and create a folder to contain our resources.
 You can export the configuration with this command :
@@ -48,28 +49,17 @@ You can follow the changes that will be made with one of these : [OpenLens](http
 
 You can now use the next shell script that will initiate everything for your cluster
 ```shell
-./scripts/all.sh
-# scripts started
-# ./config/helm.sh # Configures helm repositories
-# ./tailscale/setup.sh # Configures Tailscale operator
-# ./scripts/sed.sh # Replaces your variables for Tailscale proxy and VPN setup
-# ./rancher/setup.sh # Installs Rancher
-# ./monitoring/setup.sh # Starts Prometheus & Grafana
-# kubectl apply -k config # Prepares the configuration for the cluster
-# kubectl config set-context --current --namespace=dev # Sets the default namespace to dev where our applications will be
-# kubectl apply -k postgres # Adds Postgres to the cluster
-# ./scripts/start.sh # Deploys all the applications on the cluster thanks to Helm using the chart configured for everything in the common folder
-
+task setup
 ```
 
 After a few seconds, everything will be deployed and available !
-To configure your application, you have to set up internal urls as `[application].dev.svc.cluster.local:[service-port]`.
-You can acces your applications at `https://[application].[tailscale-dns]`
+To configure your application, you have to set up internal urls as `[application]:[service-port]`.
+You can access your applications at `https://[application].[tailscale-dns]`
 
 #### Stop & Teardown
-In order to stop the applications, you can either `helm uninstall [application]` to stop one or `./scripts/stop.sh` to stop everything.
+In order to stop the applications, you can use ArgoCD's GUI to uninstall applications.
 
-If you want to destroy everything, you have to use `scripts/teardown.sh`
+If you want to destroy everything, you have to use `setup/teardown.sh`
 
 
 ## Resources
@@ -84,4 +74,4 @@ If you want to destroy everything, you have to use `scripts/teardown.sh`
 
 
 ###
-:warning: Cloudflare Tunnel doesn't allow video streaming so I opted out of it in favor of Tailscale
+:warning: Cloudflare Tunnel doesn't allow video streaming, so I opted out of it in favor of Tailscale
