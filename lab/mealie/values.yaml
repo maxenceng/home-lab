@@ -21,7 +21,7 @@ env:
     value: postgres
   - name: POSTGRES_DB
     value: mealie
-envSecrets:
+envSecret:
   - name: POSTGRES_USER
     secretName: postgres-secret
     secretKey: user
