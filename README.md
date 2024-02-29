@@ -59,6 +59,10 @@ You can prepare the cluster for applications with
 ```shell
 task prepare
 ```
+After that, use
+```shell
+task create-apps
+```
 
 After a few seconds, everything will be deployed and available !
 To configure your application, you have to set up internal urls as `[application]:[service-port]`.
