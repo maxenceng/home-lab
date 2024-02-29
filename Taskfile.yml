@@ -83,3 +83,5 @@ tasks:
       --dest-server https://kubernetes.default.svc
       --repo https://github.com/maxenceng/home-lab.git
       --path apps
+  sync:
+    cmd: argocd app sync home-lab

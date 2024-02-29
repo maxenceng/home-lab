@@ -15,8 +15,8 @@ spec:
       helm:
         valueFiles:
           - $values/lab/monitoring/values.yaml
-    - repoURL: https://github.com/maxenceng/home-lab
-      targetRevision: HEAD
+    - repoURL: {{ .Values.spec.values.repoURL }}
+      targetRevision: {{ .Values.spec.values.targetRevision }}
       ref: values
   destination:
     server: {{ .Values.spec.destination.server }}
@@ -25,3 +25,5 @@ spec:
     automated:
       prune: true
       selfHeal: true
+    syncOptions:
+      - ServerSideApply=true
