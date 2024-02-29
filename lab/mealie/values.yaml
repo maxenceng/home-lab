@@ -1,0 +1,30 @@
+fullnameOverride: mealie
+image:
+  repository: ghcr.io/mealie-recipes/mealie
+  tag: v1.1.0
+port: 9000
+nodePort: 30099
+
+volumes:
+  - name: db
+    claimName: db
+volumeMounts:
+  - name: db
+    mountPath: /app/data
+    subPath: configs/mealie
+
+customEnv: true
+env:
+  - name: TZ
+    value: Europe/Pairs
+  - name: DB_ENGINE
+    value: postgres
+  - name: POSTGRES_DB
+    value: mealie
+envSecrets:
+  - name: POSTGRES_USER
+    secretName: postgres-secret
+    secretKey: user
+  - name: POSTGRES_PASSWORD
+    secretName: postgres-secret
+    secretKey: password
