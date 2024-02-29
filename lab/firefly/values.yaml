@@ -1,0 +1,36 @@
+fullnameOverride: firefly
+image:
+  repository: fireflyiii/core
+  tag: version-6.1.9
+port: 8080
+nodePort: 30808
+
+volumes:
+  - name: db
+    claimName: db
+volumeMounts:
+  - name: db
+    mountPath: /var/www/html/storage/upload
+    subPath: configs/firefly
+
+customEnv: true
+env:
+  - name: APP_KEY
+    value: 0Jd7qCWbt04cUlQG2nWquhjT0o6BAzWl
+  - name: DB_CONNECTION
+    value: postgres
+  - name: POSTGRES_DB
+    value: mealie
+  - name: DB_HOST
+    value: postgres
+  - name: DB_PORT
+    value: "5432"
+  - name: DB_DATABASE
+    value: firefly
+envSecret:
+  - name: DB_USERNAME
+    secretName: postgres-secret
+    secretKey: user
+  - name: DB_PASSWORD
+    secretName: postgres-secret
+    secretKey: password
