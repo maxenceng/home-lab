@@ -17,16 +17,18 @@ customEnv: true
 env:
   - name: TZ
     value: Europe/Pairs
-#  - name: DB_ENGINE
-#    value: postgres
-#  - name: POSTGRES_DB
-#    value: mealie
-#  - name: POSTGRES_SERVER
-#    value: http://postgres
-#envSecret:
-#  - name: POSTGRES_USER
-#    secretName: postgres-secret
-#    secretKey: user
-#  - name: POSTGRES_PASSWORD
-#    secretName: postgres-secret
-#    secretKey: password
+  - name: DB_ENGINE
+    value: postgres
+  - name: POSTGRES_DB
+    value: mealie
+  - name: POSTGRES_SERVER
+    value: http://postgres
+  - name: POSTGRES_PORT
+    value: "5432"
+envSecret:
+  - name: POSTGRES_USER
+    secretName: postgres-secret
+    secretKey: user
+  - name: POSTGRES_PASSWORD
+    secretName: postgres-secret
+    secretKey: password
