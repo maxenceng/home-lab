@@ -4,7 +4,7 @@ metadata:
   name: postgres
 spec:
   destination:
-    namespace: kube-system
+    namespace: dev
     server: https://kubernetes.default.svc
   source:
     repoURL: https://github.com/maxenceng/home-lab.git
