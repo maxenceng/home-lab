@@ -76,6 +76,7 @@ tasks:
       - task install-sealed-secrets
       - task set-config
       - kubectl config set-context --current --namespace=dev
+      - kubectl apply -k lab/postgres
 
   create-apps:
     cmd: argocd app create home-lab
