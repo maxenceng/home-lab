@@ -18,7 +18,7 @@ env:
   - name: APP_KEY
     value: 0Jd7qCWbt04cUlQG2nWquhjT0o6BAzWl
   - name: DB_CONNECTION
-    value: postgres
+    value: pgsql
   - name: DB_HOST
     value: postgres
   - name: DB_PORT
