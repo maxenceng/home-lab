@@ -54,7 +54,8 @@ tasks:
     dir: setup/sealed
 
   set-config:
-    cmd: kubectl apply -k config
+    cmd: argocd app create config -f app.yaml
+    dir: setup/config
 
   setup:
     cmds:
@@ -71,12 +72,16 @@ tasks:
       - kubeseal --controller-name=sealed-secrets --controller-namespace=kube-system -f sample/gluetun-secret.yaml -w config/gluetun-sealed.yaml
       - kubeseal --controller-name=sealed-secrets --controller-namespace=kube-system -f sample/postgres-secret.yaml -w config/postgres-sealed.yaml
 
+  install-postgres:
+    cmd: argocd app create postgres -f app.yaml
+    dir: setup/postgres
+
   prepare:
     cmds:
       - task install-sealed-secrets
       - task set-config
       - kubectl config set-context --current --namespace=dev
-      - kubectl apply -k lab/postgres
+      - task install-postgres
 
   create-apps:
     cmd: argocd app create home-lab

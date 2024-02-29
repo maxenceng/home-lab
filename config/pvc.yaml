@@ -3,6 +3,7 @@ kind: PersistentVolume
 metadata:
   name: data
 spec:
+  persistentVolumeReclaimPolicy: Retain
   storageClassName: manual
   capacity:
     storage: 8000Gi
