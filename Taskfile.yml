@@ -36,6 +36,10 @@ tasks:
       - tar -xvzf kubeseal-${KUBESEAL_VERSION:?}-linux-amd64.tar.gz kubeseal
       - sudo install -m 755 kubeseal /usr/local/bin/kubeseal
 
+  install-nvidia:
+    cmd: kubectl apply -f plugin.yaml
+    dir: setup/nvidia
+
   install-argocd:
     cmds:
       - kubectl create namespace argocd
