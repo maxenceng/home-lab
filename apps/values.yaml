@@ -6,7 +6,7 @@ spec:
   project: default
   source:
     repoURL: https://maxenceng.github.io/tailscale-chart/
-    targetRevision: 1.2.0
+    targetRevision: 1.1.1
     chart: easy-tailscale
     helm:
       valueFiles:

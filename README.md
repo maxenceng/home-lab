@@ -32,7 +32,7 @@ Project based on [k3s](https://k3s.io/) to host various apps to manage tv shows 
 
 #### GPU Usage
 If you have an Nvidia GPU, use `task install-nvidia` after `task prepare`
-If you don't have an Nvidia GPU, comment the `gpuEnabled: true` line in `lab/jellyfin`)
+If you don't have an Nvidia GPU, comment the `resources` lines in `lab/jellyfin/values.yaml`)
 
 ### Commands
 On your remote server, you have to use
