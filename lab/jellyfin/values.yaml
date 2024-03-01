@@ -24,3 +24,10 @@ volumeMounts:
   - name: data
     mountPath: /movies
     subPath: library/movies
+
+customEnv: true
+env:
+    - name: NVIDIA_VISIBLE_DEVICES
+      value: all
+    - name: NVIDIA_DRIVER_CAPABILITIES
+      value: all
