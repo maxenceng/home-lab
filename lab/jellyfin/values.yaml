@@ -4,6 +4,7 @@ image:
 port: 8096
 nodePort: 30096
 
+gpuEnabled: true
 resources:
   limits:
     nvidia.com/gpu: "1"
