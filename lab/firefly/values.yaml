@@ -25,6 +25,8 @@ env:
     value: "5432"
   - name: DB_DATABASE
     value: firefly
+  - name: TRUSTED_PROXIES
+    value: "**"
 envSecret:
   - name: DB_USERNAME
     secretName: postgres-secret
