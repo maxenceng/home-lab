@@ -1,11 +1,11 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: mylar
+  name: readarr
   namespace: {{ .Values.metadata.namespace }}
   finalizers: {{ .Values.metadata.finalizers }}
   labels:
-    name: mylar
+    name: readarr
 spec:
   project: {{ .Values.spec.project }}
   sources:
@@ -14,7 +14,7 @@ spec:
       chart: {{ .Values.spec.source.chart }}
       helm:
         valueFiles:
-        - $values/lab/mylar/values.yaml
+        - $values/lab/readarr/values.yaml
     - repoURL: {{ .Values.spec.values.repoURL }}
       targetRevision: {{ .Values.spec.values.targetRevision }}
       ref: values

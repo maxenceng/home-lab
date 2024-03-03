@@ -1,8 +1,9 @@
-fullnameOverride: mylar
+fullnameOverride: readarr
 image:
-  repository: lscr.io/linuxserver/mylar3
-port: 8090
-nodePort: 30190
+  repository: lscr.io/linuxserver/readarr
+  tag: develop
+port: 8787
+nodePort: 30787
 
 volumes:
   - name: db
@@ -12,7 +13,7 @@ volumes:
 volumeMounts:
   - name: db
     mountPath: /config
-    subPath: configs/mylar
+    subPath: configs/readarr
   - name: data
     mountPath: /downloads
     subPath: downloads
