@@ -1,0 +1,23 @@
+fullnameOverride: komga
+image:
+  repository: gotson/komga
+port: 25600
+nodePort: 30056
+
+volumes:
+  - name: db
+    claimName: db
+  - name: data
+    claimName: data
+volumeMounts:
+  - name: db
+    mountPath: /config
+    subPath: configs/komga
+  - name: data
+    mountPath: /data
+    subPath: library/comics
+
+customEnv: true
+env:
+  - name: TZ
+    value: Europe/Pairs

@@ -1,0 +1,21 @@
+fullnameOverride: mylar
+image:
+  repository: lscr.io/linuxserver/mylar3
+port: 8090
+nodePort: 30190
+
+volumes:
+  - name: db
+    claimName: db
+  - name: data
+    claimName: data
+volumeMounts:
+  - name: db
+    mountPath: /config
+    subPath: configs/mylar
+  - name: data
+    mountPath: /downloads
+    subPath: downloads
+  - name: data
+    mountPath: /comics
+    subPath: library/comics
