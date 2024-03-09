@@ -1,0 +1,20 @@
+fullnameOverride: radarr-anime
+image:
+  repository: linuxserver/radarr
+port: 7878
+
+volumes:
+  - name: db
+    claimName: db
+  - name: data
+    claimName: data
+volumeMounts:
+  - name: db
+    mountPath: /config
+    subPath: configs/radarr-anime
+  - name: data
+    mountPath: /downloads
+    subPath: downloads
+  - name: data
+    mountPath: /movies-anime
+    subPath: library/movies-anime

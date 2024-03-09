@@ -1,0 +1,12 @@
+fullnameOverride: vaultwarden
+image:
+  repository: vaultwarden/server
+port: 80
+
+volumes:
+  - name: db
+    claimName: db
+volumeMounts:
+  - name: db
+    mountPath: /data
+    subPath: configs/vaultwarden

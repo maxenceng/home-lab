@@ -1,0 +1,28 @@
+fullnameOverride: paperless
+image:
+  repository: ghcr.io/paperless-ngx/paperless-ngx
+port: 8000
+
+volumes:
+  - name: db
+    claimName: db
+volumeMounts:
+  - name: db
+    mountPath: /usr/src/paperless
+    subPath: configs/paperless
+
+customEnv: true
+env:
+  - name: PAPERLESS_REDIS
+    value: redis://redis:6379
+  - name: PAPERLESS_DBHOST
+    value: postgres
+  - name: PAPERLESS_DBNAME
+    value: paperless
+envSecret:
+  - name: PAPERLESS_DBUSER
+    secretName: postgres-secret
+    secretKey: user
+  - name: PAPERLESS_DBPASS
+    secretName: postgres-secret
+    secretKey: password

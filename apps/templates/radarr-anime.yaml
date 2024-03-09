@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: radarr-anime
+  namespace: {{ .Values.metadata.namespace }}
+  finalizers: {{ .Values.metadata.finalizers }}
+  labels:
+    name: radarr-anime
+spec:
+  project: {{ .Values.spec.project }}
+  sources:
+    - repoURL: {{ .Values.spec.source.repoURL }}
+      targetRevision: {{ .Values.spec.source.targetRevision }}
+      chart: {{ .Values.spec.source.chart }}
+      helm:
+        valueFiles:
+        - $values/lab/radarr-anime/values.yaml
+    - repoURL: {{ .Values.spec.values.repoURL }}
+      targetRevision: {{ .Values.spec.values.targetRevision }}
+      ref: values
+  destination:
+    server: {{ .Values.spec.destination.server }}
+    namespace: {{ .Values.spec.destination.namespace }}
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

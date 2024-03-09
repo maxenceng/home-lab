@@ -1,0 +1,20 @@
+fullnameOverride: sonarr-anime
+image:
+  repository: linuxserver/sonarr
+port: 8989
+
+volumes:
+  - name: db
+    claimName: db
+  - name: data
+    claimName: data
+volumeMounts:
+  - name: db
+    mountPath: /config
+    subPath: configs/sonarr-anime
+  - name: data
+    mountPath: /downloads
+    subPath: downloads
+  - name: data
+    mountPath: /tv-anime
+    subPath: library/tv-anime
