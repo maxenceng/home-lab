@@ -30,6 +30,8 @@ env:
     value: paperless
   - name: PAPERLESS_PORT
     value: 8000
+  - name: PAPERLESS_URL
+    value: https://paperless.raven-catfish.ts.net
 envSecret:
   - name: PAPERLESS_DBUSER
     secretName: postgres-secret
