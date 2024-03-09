@@ -8,8 +8,17 @@ volumes:
     claimName: db
 volumeMounts:
   - name: db
-    mountPath: /usr/src/paperless
-    subPath: configs/paperless
+    mountPath: /usr/src/paperless/data
+    subPath: configs/paperless/data
+  - name: db
+    mountPath: /usr/src/paperless/media
+    subPath: configs/paperless/media
+  - name: db
+    mountPath: /usr/src/paperless/export
+    subPath: configs/paperless/export
+  - name: db
+    mountPath: /usr/src/paperless/consume
+    subPath: configs/paperless/consume
 
 customEnv: true
 env:
