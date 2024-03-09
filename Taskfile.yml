@@ -67,10 +67,6 @@ tasks:
     cmd: argocd app create dashboard -f app.yaml
     dir: setup/dashboard
 
-  dashboard-ingress:
-    cmd: kubectl apply -f ingress.yaml
-    dir: setup/dashboard
-
   install-sealed-secrets:
     cmd: argocd app create sealed-secrets -f app.yaml
     dir: setup/sealed
@@ -95,7 +91,6 @@ tasks:
   prepare:
     cmds:
       - task install-dashboard
-      - task dashboard-ingress
       - task install-sealed-secrets
       - task set-config
       - kubectl config set-context --current --namespace=dev

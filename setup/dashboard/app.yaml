@@ -10,6 +10,16 @@ spec:
     repoURL: https://kubernetes.github.io/dashboard
     targetRevision: 7.1.1
     chart: kubernetes-dashboard
+    helm:
+      values: |
+        ingress:
+          enabled: true
+          hosts:
+            - dashboard
+          useDefaultAnnotations: false
+          pathType: Prefix
+          issuer:
+            scope: disabled
   project: default
   syncPolicy:
     syncOptions:
