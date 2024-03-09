@@ -14,6 +14,7 @@ spec:
       values: |
         ingress:
           enabled: true
+          ingressClassName: tailscale
           hosts:
             - dashboard
           useDefaultAnnotations: false
