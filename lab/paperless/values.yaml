@@ -28,6 +28,8 @@ env:
     value: postgres
   - name: PAPERLESS_DBNAME
     value: paperless
+  - name: PAPERLESS_PORT
+    value: 8000
 envSecret:
   - name: PAPERLESS_DBUSER
     secretName: postgres-secret
