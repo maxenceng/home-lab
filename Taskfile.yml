@@ -67,6 +67,9 @@ tasks:
     cmd: argocd app create dashboard -f app.yaml
     dir: setup/dashboard
 
+  dashboard-password:
+    cmd: kubectl -n kubernetes-dashboard get secret admin-user-secret -o jsonpath="{.data.token}" | base64 -d
+
   install-sealed-secrets:
     cmd: argocd app create sealed-secrets -f app.yaml
     dir: setup/sealed
