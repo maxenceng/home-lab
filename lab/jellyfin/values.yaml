@@ -21,8 +21,14 @@ volumeMounts:
     mountPath: /tv
     subPath: library/tv
   - name: data
+    mountPath: /tv-anime
+    subPath: library/tv-anime
+  - name: data
     mountPath: /movies
     subPath: library/movies
+  - name: data
+    mountPath: /movies-anime
+    subPath: library/movies-anime
 
 customEnv: true
 env:
