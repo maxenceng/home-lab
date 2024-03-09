@@ -2,7 +2,6 @@ fullnameOverride: sonarr
 image:
   repository: linuxserver/sonarr
 port: 8989
-nodePort: 30989
 
 volumes:
   - name: db

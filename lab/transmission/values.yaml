@@ -4,8 +4,9 @@ image:
 port: 9091
 nodePort: 30091
 
-ingress:
-  enabled: false
+services:
+  clusterIP: false
+  nodePort: true
 
 additionalPorts:
   - enabled: true

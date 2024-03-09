@@ -2,7 +2,6 @@ fullnameOverride: komga
 image:
   repository: gotson/komga
 port: 25600
-nodePort: 30056
 
 volumes:
   - name: db

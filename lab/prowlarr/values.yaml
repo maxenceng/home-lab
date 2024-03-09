@@ -5,8 +5,9 @@ image:
 port: 9696
 nodePort: 30696
 
-ingress:
-  enabled: false
+services:
+  clusterIP: false
+  nodePort: true
 
 volumes:
   - name: db

@@ -3,7 +3,6 @@ image:
   repository: fireflyiii/core
   tag: version-6.1.9
 port: 8080
-nodePort: 30808
 
 volumes:
   - name: db

@@ -2,7 +2,6 @@ fullnameOverride: homepage
 image:
   repository: ghcr.io/gethomepage/homepage
 port: 3000
-nodePort: 30030
 
 volumes:
   - name: db

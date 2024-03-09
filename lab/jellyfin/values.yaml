@@ -2,7 +2,6 @@ fullnameOverride: jellyfin
 image:
   repository: linuxserver/jellyfin
 port: 8096
-nodePort: 30096
 
 gpuEnabled: true
 resources:

@@ -80,12 +80,17 @@ tasks:
     cmd: argocd app create postgres -f app.yaml
     dir: setup/postgres
 
+  install-redis:
+    cmd: argocd app create redis -f app.yaml
+    dir: setup/redis
+
   prepare:
     cmds:
       - task install-sealed-secrets
       - task set-config
       - kubectl config set-context --current --namespace=dev
       - task install-postgres
+      - task install-redis
 
   create-apps:
     cmd: argocd app create home-lab
