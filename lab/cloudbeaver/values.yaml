@@ -2,11 +2,13 @@ fullnameOverride: cloudbeaver
 image:
   repository: dbeaver/cloudbeaver
 port: 8978
-nodePort: 31978
 
-services:
-  clusterIP: false
-  nodePort: true
+nodePort:
+  enabled: true
+  port: 31978
+
+ingress:
+  enabled: false
 
 volumes:
   - name: db

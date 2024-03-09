@@ -3,11 +3,13 @@ image:
   repository: lscr.io/linuxserver/prowlarr
   tag: develop
 port: 9696
-nodePort: 30696
 
-services:
-  clusterIP: false
-  nodePort: true
+nodePort:
+  enabled: true
+  port: 30696
+
+ingress:
+  enabled: false
 
 volumes:
   - name: db

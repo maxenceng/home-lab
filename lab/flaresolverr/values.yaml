@@ -3,6 +3,9 @@ image:
   repository: ghcr.io/flaresolverr/flaresolverr
 port: 8191
 
-services:
-  clusterIP: false
-  nodePort: true
+nodePort:
+  enabled: true
+  port: 30080
+
+ingress:
+  enabled: false

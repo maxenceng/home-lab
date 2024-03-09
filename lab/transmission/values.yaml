@@ -2,11 +2,13 @@ fullnameOverride: transmission
 image:
   repository: lscr.io/linuxserver/transmission
 port: 9091
-nodePort: 30091
 
-services:
-  clusterIP: false
-  nodePort: true
+nodePort:
+  enabled: true
+  port: 30091
+
+ingress:
+  enabled: false
 
 additionalPorts:
   - enabled: true
