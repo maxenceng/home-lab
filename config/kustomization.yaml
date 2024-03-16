@@ -6,3 +6,4 @@ resources:
   - pvc-db.yaml
   - gluetun-sealed.yaml
   - postgres-sealed.yaml
+  - paperless-sealed.yaml

@@ -1,0 +1,22 @@
+fullnameOverride: ghost
+image:
+  repository: ghost
+  tag: 5.80.3
+port: 2368
+
+ingress:
+  className: cloudflare
+  host: ghost.dreamhomelab.online
+
+volumes:
+  - name: db
+    claimName: db
+volumeMounts:
+  - name: db
+    mountPath: /var/lib/ghost/content
+    subPath: configs/ghost
+
+customEnv: true
+env:
+  - name: database__connection__filename
+    value: /var/lib/ghost/content/data/ghost.db

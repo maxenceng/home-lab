@@ -3,6 +3,7 @@ image:
   repository: linuxserver/jellyfin
 port: 8096
 
+strategyType: Recreate
 gpuEnabled: true
 resources:
   limits:

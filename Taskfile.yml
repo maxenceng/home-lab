@@ -19,16 +19,24 @@ tasks:
     cmds:
       - helm repo add stable https://charts.helm.sh/stable
       - helm repo add tailscale https://pkgs.tailscale.com/helmcharts
+      - helm repo add strrl.dev https://helm.strrl.dev
       - helm repo update
 
   install-tailscale:
     cmds:
       - helm upgrade --install tailscale-operator tailscale/tailscale-operator
-         -n tailscale --create-namespace
-         -f values.yaml
-         --wait
+        -n tailscale --create-namespace
+        -f values.yaml
+        --wait
       - kubectl apply -f operator.yaml
     dir: setup/tailscale
+
+  install-cloudflare:
+    cmd: helm upgrade --install --wait
+      -n cloudflare-tunnel-ingress-controller --create-namespace
+      cloudflare-tunnel-ingress-controller
+      strrl.dev/cloudflare-tunnel-ingress-controller
+      --set=cloudflare.apiToken="{{.CF_TOKEN}}",cloudflare.accountId="{{.CF_ID}}",cloudflare.tunnelName="homelab"
 
   install-kubeseal:
     cmds:
@@ -82,6 +90,7 @@ tasks:
     cmds:
       - kubeseal --controller-name=sealed-secrets --controller-namespace=kube-system -f sample/gluetun-secret.yaml -w config/gluetun-sealed.yaml
       - kubeseal --controller-name=sealed-secrets --controller-namespace=kube-system -f sample/postgres-secret.yaml -w config/postgres-sealed.yaml
+      - kubeseal --controller-name=sealed-secrets --controller-namespace=kube-system -f sample/paperless-secret.yaml -w config/paperless-sealed.yaml
 
   install-postgres:
     cmd: argocd app create postgres -f app.yaml

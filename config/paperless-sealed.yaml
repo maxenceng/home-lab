@@ -1,0 +1,16 @@
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: paperless-secret
+  namespace: dev
+spec:
+  encryptedData:
+    url: AgCKfWZIBKVktZdx6sxcFsV8eRfwPGZo/dk+r0/qiZFTpKEf+F6JAoVlE3zteaU1FzscJI1YPUQ7umrL4wR7tD5bzZpR7NqbG/4OMhUizFfz9qrYlEJXWoYdQU5HqTPbZMid8P7j15vztftQNOwQWntCAK53gBUe8AUrvNbGgIZloNF0EJw8HbsbM7jRzmUEqgwsrnGqMvNkwP1OufYQX0LFXKq1NTwc0ljXSLMMMJAJGKCT4hgLjyaKwPN/1GPd7ciUTPc9ZdmwmDcD5s9k1N9QnmA5qGdZjkQ5P/hEgU4JkVaQCnC5TZUFx3NgJ60uO23esWlZJA3Knnz2Jmo9/Exij1u+wHKP5L1HGogqQUJ7DWgt+HsIL7cnujHSe2ynpyF0AQeIdbx9VvcTIpLm/NXlcyAewyIraBfZPBzLgiKcceyw8DbFSEXR0BEvOuYwlvYB8vHRPWlqQ8rObW45AJ1XNiaN5BE5AhA/4eOU7NkZgvkHhMlsRFd7OZ4Kjqjbu5g85vPc17mNk9prUP0TyLYCPtYudGXZGNdZf6uE1r1jwFqm3fgdG3C6NUsv5vl1CY3jfTR8kd8afhwmNnExR6aeLdQ9+ceV+rg8avbPxn17mjpPg+K4samqtv1gZ5oJaBQY8f75xRmwyiwww4AAogzJwuF9/r9hhdHWIzzphbxSliExpPEXlxjZ3bg8PAWcgIHWsjZ73Wd2ZPfDLM5bRwK0aKrnuhs8wMyDhliHxn/vGulq4uBz2Q==
+  template:
+    metadata:
+      creationTimestamp: null
+      name: paperless-secret
+      namespace: dev
+    type: Opaque
