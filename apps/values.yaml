@@ -5,7 +5,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/maxenceng/easy-deploy-chart/
+    repoURL: https://maxenceng.github.io/easy-deploy-chart/
     targetRevision: 2.0.1
     chart: easy-chart
     helm:
