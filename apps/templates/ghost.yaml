@@ -9,9 +9,9 @@ metadata:
 spec:
   project: {{ .Values.spec.project }}
   sources:
-    - repoURL: {{ .Values.spec.source.repoURL }}
-      targetRevision: {{ .Values.spec.source.targetRevision }}
-      chart: {{ .Values.spec.source.chart }}
+    - repoURL: https://maxenceng.github.io/easy-cloudflare-chart/
+      targetRevision: 1.0.0
+      chart: easy-cloudflare
       helm:
         valueFiles:
         - $values/lab/ghost/values.yaml

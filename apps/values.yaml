@@ -5,8 +5,8 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://maxenceng.github.io/easy-deploy-chart/
-    targetRevision: 2.0.0
+    repoURL: https://maxenceng.github.io/easy-tailscale-chart/
+    targetRevision: 2.0.2
     chart: easy-tailscale
     helm:
       valueFiles:

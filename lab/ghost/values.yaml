@@ -5,8 +5,7 @@ image:
 port: 2368
 
 ingress:
-  className: cloudflare-tunnel
-  host: ghost.dreamhomelab.online
+  domain: ghost.dreamhomelab.online
 
 volumes:
   - name: db
