@@ -7,3 +7,4 @@ resources:
   - gluetun-sealed.yaml
   - postgres-sealed.yaml
   - paperless-sealed.yaml
+  - mariadb-sealed.yaml

@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mariadb
+spec:
+  destination:
+    namespace: dev
+    server: https://kubernetes.default.svc
+  source:
+    repoURL: https://github.com/maxenceng/home-lab.git
+    targetRevision: HEAD
+    path: lab/mariadb
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
