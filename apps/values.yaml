@@ -6,8 +6,8 @@ spec:
   project: default
   source:
     repoURL: https://maxenceng.github.io/easy-deploy-chart/
-    targetRevision: 2.0.1
-    chart: easy-chart
+    targetRevision: 2.0.0
+    chart: easy-tailscale
     helm:
       valueFiles:
         - values.yaml
