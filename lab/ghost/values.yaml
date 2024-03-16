@@ -29,7 +29,7 @@ env:
   - name: database__connection__database
     value: ghost
   - name: url
-    value: ghost.dreamhomelab.online
+    value: https://ghost.dreamhomelab.online
 envSecret:
   - name: database__connection__password
     secretName: mariadb-secret
