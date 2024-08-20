@@ -1,6 +1,7 @@
 fullnameOverride: jellyfin
 image:
   repository: linuxserver/jellyfin
+  tag: 10.9.9
 port: 8096
 
 strategyType: Recreate
