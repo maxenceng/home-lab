@@ -40,8 +40,8 @@ tasks:
 
   install-kubeseal:
     cmds:
-      - wget "https://github.com/bitnami-labs/sealed-secrets/releases/download/v${KUBESEAL_VERSION:?}/kubeseal-${KUBESEAL_VERSION:?}-linux-amd64.tar.gz"
-      - tar -xvzf kubeseal-${KUBESEAL_VERSION:?}-linux-amd64.tar.gz kubeseal
+      - wget "https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.27.1/kubeseal-0.27.1-linux-amd64.tar.gz"
+      - tar -xvzf kubeseal-0.27.1-linux-amd64.tar.gz kubeseal
       - sudo install -m 755 kubeseal /usr/local/bin/kubeseal
 
   install-nvidia:
@@ -111,6 +111,8 @@ tasks:
       - task install-sealed-secrets
       - task set-config
       - kubectl config set-context --current --namespace=dev
+      - kubectl create ns monitoring
+      - task install-mariadb
       - task install-postgres
       - task install-redis
 
