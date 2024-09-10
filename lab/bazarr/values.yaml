@@ -4,6 +4,13 @@ image:
   tag: release-1.4.3
 port: 6767
 
+nodePort:
+  enabled: true
+  port: 30676
+
+ingress:
+  enabled: false
+
 volumes:
   - name: db
     claimName: db
