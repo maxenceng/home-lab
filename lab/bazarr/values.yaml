@@ -1,6 +1,6 @@
 fullnameOverride: bazarr
 image:
-  repository: bazarr
+  repository: hotio/bazarr
   tag: release-1.4.3
 port: 6767
 
