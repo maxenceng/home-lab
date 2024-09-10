@@ -21,5 +21,8 @@ volumeMounts:
     mountPath: /config
     subPath: configs/bazarr
   - name: data
-    mountPath: /data
-    subPath: library
+    mountPath: /movies
+    subPath: library/movies
+  - name: data
+    mountPath: /tv
+    subPath: library/tv
