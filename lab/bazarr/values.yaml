@@ -1,0 +1,18 @@
+fullnameOverride: bazarr
+image:
+  repository: bazarr
+  tag: release-1.4.3
+port: 6767
+
+volumes:
+  - name: db
+    claimName: db
+  - name: data
+    claimName: data
+volumeMounts:
+  - name: db
+    mountPath: /config
+    subPath: configs/bazarr
+  - name: data
+    mountPath: /data
+    subPath: library
