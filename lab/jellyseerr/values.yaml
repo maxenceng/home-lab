@@ -1,7 +1,7 @@
 fullnameOverride: jellyseerr
 image:
   repository: fallenbagel/jellyseerr
-  tag: 1.9.2
+  tag: 2.1.0
 port: 5055
 
 volumes:

@@ -1,6 +1,7 @@
 fullnameOverride: cloudbeaver
 image:
   repository: dbeaver/cloudbeaver
+  tag: 24.2.5
 port: 8978
 
 nodePort:

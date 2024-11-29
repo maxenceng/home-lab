@@ -1,6 +1,7 @@
 fullnameOverride: komga
 image:
   repository: gotson/komga
+  tag: 1.14.1
 port: 25600
 
 volumes:
