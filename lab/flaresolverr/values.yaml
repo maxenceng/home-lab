@@ -1,7 +1,7 @@
 fullnameOverride: flaresolverr
 image:
-  repository: 21hsmw/flaresolverr
-  tag: nodriver
+  repository: alexfozor/flaresolverr
+  tag: pr-1300-experimental
 port: 8191
 
 nodePort:
@@ -13,5 +13,7 @@ ingress:
 
 customEnv: true
 env:
-  - name: DRIVER
-    value: nodriver
+  - name: TZ
+    value: Europe/London
+  - name: CAPTCHA_SOLVER
+    value: none
