@@ -4,6 +4,13 @@ image:
   tag: v0.9.0
 port: 3000
 
+nodePort:
+  enabled: true
+  port: 30100
+
+ingress:
+  enabled: false
+
 volumes:
   - name: db
     claimName: db
