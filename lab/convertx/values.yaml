@@ -23,3 +23,5 @@ customEnv: true
 env:
   - name: ALLOW_UNAUTHENTICATED
     value: true
+  - name: HTTP_ALLOWED
+    value: true
