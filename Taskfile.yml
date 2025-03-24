@@ -90,7 +90,6 @@ tasks:
     cmds:
       - kubeseal --controller-name=sealed-secrets --controller-namespace=kube-system -f sample/gluetun-secret.yaml -w config/gluetun-sealed.yaml
       - kubeseal --controller-name=sealed-secrets --controller-namespace=kube-system -f sample/postgres-secret.yaml -w config/postgres-sealed.yaml
-      - kubeseal --controller-name=sealed-secrets --controller-namespace=kube-system -f sample/paperless-secret.yaml -w config/paperless-sealed.yaml
       - kubeseal --controller-name=sealed-secrets --controller-namespace=kube-system -f sample/mariadb-secret.yaml -w config/mariadb-sealed.yaml
 
   install-postgres:
@@ -101,10 +100,6 @@ tasks:
     cmd: argocd app create mariadb -f app.yaml
     dir: setup/mariadb
 
-  install-redis:
-    cmd: argocd app create redis -f app.yaml
-    dir: setup/redis
-
   prepare:
     cmds:
       - task install-dashboard
@@ -114,7 +109,6 @@ tasks:
       - kubectl create ns monitoring
       - task install-mariadb
       - task install-postgres
-      - task install-redis
 
   create-apps:
     cmd: argocd app create home-lab
