@@ -28,7 +28,7 @@ Project based on [k3s](https://k3s.io/) to host various apps to manage tv shows 
 
 - Use `mv .env.example .env` and replace the required variables
 - Create a Tailscale account and follow [the instructions](https://tailscale.com/kb/1236/kubernetes-operator)
-- Taskfile [installed](https://github.com/go-task/task
+- Taskfile [installed](https://github.com/go-task/task)
 
 #### GPU Usage
 If you have an Nvidia GPU, use `task install-nvidia` after `task prepare`
@@ -90,4 +90,5 @@ If you want to destroy everything, you have to use `setup/teardown.sh`
 
 
 ###
+
 :warning: Cloudflare Tunnel doesn't allow video streaming, so I opted out of it in favor of Tailscale
