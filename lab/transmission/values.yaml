@@ -1,6 +1,7 @@
 fullnameOverride: transmission
 image:
-  repository: lscr.io/linuxserver/transmission
+  repository: linuxserver/transmission
+  tag: 4.0.6
 port: 9091
 
 nodePort:

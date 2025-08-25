@@ -1,6 +1,7 @@
 fullnameOverride: sonarr
 image:
   repository: linuxserver/sonarr
+  tag: 4.0.15
 port: 8989
 
 volumes:

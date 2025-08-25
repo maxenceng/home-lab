@@ -28,7 +28,7 @@ tasks:
         -n tailscale --create-namespace
         -f values.yaml
         --wait
-      - kubectl apply -f operator.yaml
+#      - kubectl apply -f operator.yaml
     dir: setup/tailscale
 
   install-cloudflare:

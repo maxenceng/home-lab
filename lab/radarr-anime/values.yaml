@@ -1,6 +1,7 @@
 fullnameOverride: radarr-anime
 image:
   repository: linuxserver/radarr
+  tag: 5.26.2
 port: 7878
 
 volumes:
