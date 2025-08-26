@@ -9,5 +9,5 @@ volumes:
     claimName: db
 volumeMounts:
   - name: db
-    mountPath: /app/data
+    mountPath: /config
     subPath: configs/home-assistant
