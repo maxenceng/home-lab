@@ -1,0 +1,11 @@
+repository: linuxserver/homeassistant
+tag: 2025.8.3
+port: 8123
+
+volumes:
+  - name: db
+    claimName: db
+volumeMounts:
+  - name: db
+    mountPath: /app/data
+    subPath: configs/home-assistant
