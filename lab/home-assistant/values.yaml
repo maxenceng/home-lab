@@ -1,5 +1,7 @@
-repository: linuxserver/homeassistant
-tag: 2025.8.3
+fullnameOverride: home-assistant
+image:
+  repository: linuxserver/homeassistant
+  tag: 2025.8.3
 port: 8123
 
 volumes:
